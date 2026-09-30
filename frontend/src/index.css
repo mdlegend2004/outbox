@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+}
+
+/* Rich text editor content */
+.editor-content .ProseMirror {
+  @apply min-h-[260px] px-4 py-3 text-sm leading-6 outline-none;
+}
+.editor-content .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  @apply pointer-events-none float-left h-0 text-ink-faint;
+}
+.editor-content .ProseMirror ul {
+  @apply list-disc pl-6;
+}
+.editor-content .ProseMirror ol {
+  @apply list-decimal pl-6;
+}
+.editor-content .ProseMirror blockquote {
+  @apply border-l-2 border-line pl-3 text-ink-muted;
+}
+.editor-content .ProseMirror h1 {
+  @apply text-xl font-semibold;
+}
+.editor-content .ProseMirror h2 {
+  @apply text-lg font-semibold;
+}
+
+/* Rendered email bodies */
+.email-body p {
+  @apply mb-3;
+}
+.email-body ul {
+  @apply mb-3 list-disc pl-6;
+}
+.email-body ol {
+  @apply mb-3 list-decimal pl-6;
+}
+.email-body blockquote {
+  @apply mb-3 border-l-2 border-line pl-3 text-ink-muted;
+}
+.email-body a {
+  @apply text-brand underline;
+}
